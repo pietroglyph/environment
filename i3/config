@@ -152,8 +152,10 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # user keybinds
-bindsym $mod+p "/home/declan/work/bin/passmenu"
-bindsym $mod+g "/bin/i3lock"
+bindsym $mod+p exec "/home/declan/work/bin/passmenu"
+bindsym $mod+g exec "/bin/i3lock"
+bindsym --release XF86MonBrightnessUp exec "/home/declan/work/bin/brightness.sh +"
+bindsym --release XF86MonBrightnessDown exec "/home/declan/work/bin/brightness.sh -"
 
 # user programs
 exec "/bin/feh --bg-scale /home/declan/Pictures/Wallpaper.jpg"
