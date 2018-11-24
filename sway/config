@@ -201,7 +201,7 @@ bindsym $mod+r mode "resize"
 #
 #exec "xrdb /home/declan/.Xresources"
 exec "/usr/bin/lxpolkit"
-exec "/home/declan/work/bin/redshift -t 5500K:2500K -m wayland"
+exec "/home/declan/work/bin/redshift-gtk -t 5500K:2500K -m wayland"
 
 #
 # User Binds
