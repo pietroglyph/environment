@@ -159,7 +159,8 @@ bindsym --release XF86MonBrightnessDown exec "/home/declan/work/bin/brightness.s
 
 # user programs
 exec "/bin/feh --bg-scale /home/declan/Pictures/Wallpaper.jpg"
-exec "/home/declan/work/bin/redshift-gtk -m randr -o 5500K:2500K"
+exec "/bin/xrandr --setprovideroffloadsink nouveau Intel"
+#exec "/home/declan/work/bin/redshift-gtk -m randr -o 5500K:2500K"
 exec "/bin/xcompmgr"
 
 # resize window (you can also use the mouse for that)
