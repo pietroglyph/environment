@@ -31,7 +31,7 @@
  */
 
 const allowedSites = [
-	/^.*\.google.com/,
+  /^.*\.google.com/,
   /^.*\.gutenberg.org/,
   /^.*\.thesaurus.com/,
   /^.*\.grammarly.com/,
