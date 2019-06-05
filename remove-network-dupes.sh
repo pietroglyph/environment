@@ -1,6 +1,7 @@
 #!/bin/bash
 
-nmcli con | gawk 'BEGIN {
+nmcli con | gawk '
+BEGIN {
     actuallyDelFlag = "dryRun=false"
     if (ARGV[1] != actuallyDelFlag) {
         printf "Running in dry run mode. Pass %s to actually delete connections. \n", actuallyDelFlag

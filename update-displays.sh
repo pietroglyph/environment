@@ -2,4 +2,4 @@
 
 pkill xcompmgr
 xcompmgr &
-feh --bg-scale /home/declan/Pictures/Wallpaper.jpg
+feh --bg-fill /home/declan/Pictures/Wallpaper.jpg

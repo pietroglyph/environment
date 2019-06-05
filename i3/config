@@ -153,12 +153,12 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # user keybinds
 bindsym $mod+p exec "/home/declan/work/bin/passmenu"
-bindsym $mod+g exec "/bin/i3lock"
+bindsym $mod+g exec "/bin/i3lock -i ~/Pictures/screensaver.jpg"
 bindsym --release XF86MonBrightnessUp exec "/home/declan/work/bin/brightness.sh +"
 bindsym --release XF86MonBrightnessDown exec "/home/declan/work/bin/brightness.sh -"
 
 # user programs
-exec --no-startup-id "/bin/feh --bg-scale /home/declan/Pictures/Wallpaper.jpg"
+exec --no-startup-id "/bin/feh --bg-fill /home/declan/Pictures/Wallpaper.jpg"
 exec --no-startup-id "/bin/xrandr --setprovideroffloadsink nouveau Intel"
 exec --no-startup-id "/bin/redshift -l manual:47.606209:-122.332069 -b 1:1 -v -t 6500K:2000K"
 exec --no-startup-id "/bin/xcompmgr"
