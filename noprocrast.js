@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name     noprocrast
-// @version  1.1.0
+// @version  1.1.1
 // @grant    *
 // ==/UserScript==
 
 /**
  * ==== noprocrast ====
  *
- * Copyright (C) 2018 Declan Freeman-Gleason
+ * Copyright (C) 2018-2019 Declan Freeman-Gleason
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -57,13 +57,25 @@ code {
   background-color: lightgray;
   padding: calc(1em / 2);
 }
+body {
+	font-family: "Helvetica", sans-serif;
+}
+.fade-in {
+	animation: fade-in 2s;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
 </style>
 <center>
   <h1>Get back to work!</h1>
-  <h3><code>${window.location.href}</code> does not match the whitelist:<h3>
+  <h3><code>${window.location.href}</code> does not match the whitelist:</h3>
   <code style="width: 20%; display: block;">
-    ${allowedSites}
+    ${allowedSites.map((v, i) => (i > 0 ? "<br>" + v : v)).toString()}
   </code>
+	<h2 class="fade-in">${window.location.host === "news.ycombinator.com" ? "You have a problem" : ""}</h2>
 </center>
 `;
   stripAttributes(document.head.attributes);
