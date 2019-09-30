@@ -1,0 +1,3 @@
+#!/bin/bash
+cd /home/declan/work/src/github.com/pietroglyph/recursivedescent/src/
+rlwrap java recursivedescent.RecursiveDescent
