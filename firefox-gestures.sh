@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [[ $(xdotool search --onlyvisible --class "firefox") != $(xdotool getwindowfocus) ]]; then
+if [[ $(xdotool search --onlyvisible --class "firefox") != *"$(xdotool getwindowfocus)"* ]]; then
 	echo "Error: run this command while Firefox is focused" 1>&2
 	exit 1
 fi

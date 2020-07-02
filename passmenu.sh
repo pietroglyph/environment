@@ -24,5 +24,5 @@ else
 		xdotool type --clearmodifiers --file -
 fi
 
-# xdotool needs some delay so all the characters get put in, so we just send a notification to tell when it's OK to loose focus from the password box or whatever
+# xdotool needs some delay so all the characters get put in, so we just send a notification to tell when it's OK to lose focus from the password box or whatever
 notify-send "Done \"typing\" the password." -u low -a "passmenu" -t 800
