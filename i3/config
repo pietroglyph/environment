@@ -106,6 +106,14 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
+# music player shit
+bindcode 70 exec "playerctl --player=ncspot,%any previous"
+bindcode 71 exec "playerctl --player=ncspot,%any play-pause"
+bindcode 72 exec "playerctl --player=ncspot,%any next"
+bindcode 67 exec "amixer sset Master toggle"
+bindcode 68 exec "amixer sset Master 5%-"
+bindcode 69 exec "amixer sset Master 5%+"
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -161,7 +169,10 @@ bindsym --release XF86MonBrightnessDown exec "/home/declan/work/bin/brightness.s
 # user programs
 exec --no-startup-id "/bin/feh --bg-fill /home/declan/Pictures/Wallpaper.jpg"
 exec --no-startup-id "/bin/xrandr --setprovideroffloadsink nouveau Intel"
-exec --no-startup-id "/bin/redshift -l manual:47.606209:-122.332069 -b 1:1 -v -t 6500K:2000K"
+#exec --no-startup-id "/bin/redshift -l manual:47.606209:-122.332069 -b 1:1 -v -t 6500K:2000K" # Bainbridge
+exec --no-startup-id "/bin/setxkbmap -option ctrl:nocaps -option ctrl:both_capslock"
+exec --no-startup-id "/bin/xcape -t 170"
+exec --no-startup-id "/bin/redshift -l manual:42.293030:-71.263069 -b 1:1 -v -t 6500K:2000K" # Olin
 exec --no-startup-id "/bin/xcompmgr"
 exec --no-startup-id "/usr/bin/nm-applet"
 
