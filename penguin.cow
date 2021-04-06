@@ -1,0 +1,59 @@
+#
+# Penguin is from club penguin. Party hat added by
+# Someone on the internet.
+# Transformed into cowfile/ASII art by
+# Declan Freeman-Gleason
+#
+$eye = chop($eyes);
+$bellybutton = int(rand(10));
+$the_cow = <<EOC;
+      $thoughts       .                      
+       $thoughts      ].                     
+        $thoughts     =s.                    
+              :dL                    
+              :QWc                   
+              ]WW1,                  
+              ]BWvv,        
+              jBGvnm,        
+              jBinnWm.        
+              mtivnWWs.              
+              2iivmQB^_              
+              |||"?~.;=;             
+             /..:;;==;;|             
+            .(==;:--;;;]             
+            ]::-aymm/;;=>            
+            ]::j#4Wr#/::[
+            ]::${eye};;;;;${eye}::[            
+           .];:Y=====f:=[.           
+           :];:JXXXXX,:]::           
+           =;rJSXXXXXZc):=           
+          .=:~1XXXXXXX}=;;.          
+          =;;::ZXXXXXe.;;;;.         
+        .==;;;:%!Soe!s.=;;;=,        
+       .>=;;;;]mhaaaZm;=;;;=<.       
+      .>=;;;;-jQQmmmQQL:;;;;;<.      
+      =;;;;;;=QQQQQWQQQ,;;;;;;=.     
+     :=;;;;;-jQQQQQQQQQL-;;;;;;:     
+     =;;;;;;_QQQQQQQQQQQ/:;;;-;;.    
+    :=:.;;;.mQQQQQQQQQQQm:;;; =;;    
+   .=; :=;:]QQQQQQQQQQQQQk.=;.:=;:   
+   :;:.=;;:QQQQQQQQQQQQQQQ>;;; :;;.  
+  .=:..;;;]QQQQQQQQQQQQQQQL:;;.:-=;  
+  =:..;;;:jQQQQQQQQQQQQQQQQ.;;= --:: 
+ :-  :;;;.dQQQQQQQQQQQQQQQQ.=;;:   - 
+    .;;;;.dQQQQQQQQQQQQQQQQ.;;;:     
+    .;;;;:jQQQQQQQQQQQQQQQ@.;;;:     
+     ;;;;;]QQQQQQQ${bellybutton}QQQQQQQ[:;;;:     
+    .::;;;)QQQQQQQQQQQQQQW`=;;:      
+     :-;;;.]QQQQQQQQQQQQD';;::-      
+      :.:::.?WWWWWWWWZY^ -:---       
+      .--.:.-."?""^-  .-:.-.-        
+         .. -- .....-- - ._          
+      _<dXZZXooaa, _asaadXXXs,       
+     )SXXXXXXZXXS( :S2S2XXXXXXn,     
+     i,}""!"SXX2X( .XXXY!"""<_av.    
+     )2S2So2onnno'  2nnnn2X22Snv     
+      -!I1oo2oo11   Inooooon1*""     
+          .  .        . . .          
+
+EOC
