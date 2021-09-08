@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function killDiscord() {
-	while :; do killall Discord; sleep 5; done
+	while :; do killall Discord; sleep 45; done
 }
 
 function timeboxedAuditoryWarning() {
