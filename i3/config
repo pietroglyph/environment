@@ -162,7 +162,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # user keybinds
 bindsym $mod+p exec "/home/declan/work/bin/passmenu -nb black -sb red"
 bindsym $mod+t exec "/home/declan/work/bin/thesau"
-bindsym $mod+g exec "/bin/i3lock -i ~/Pictures/Wallpaper.jpg"
+bindsym $mod+g exec "/bin/i3lock -i ~/Pictures/lockscreen.png -p win"
 bindsym --release XF86MonBrightnessUp exec "/home/declan/work/bin/brightness.sh +"
 bindsym --release XF86MonBrightnessDown exec "/home/declan/work/bin/brightness.sh -"
 
