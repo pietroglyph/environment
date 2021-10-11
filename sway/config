@@ -30,7 +30,9 @@ output * bg /home/declan/Pictures/Wallpaper.alternate.jpg fill
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-output eDP-1 resolution 1920x1080 position 0,0
+output eDP-1 resolution 1920x1080 position 1920,1080
+output "Hewlett Packard HP 22er 3CM743171D   " resolution 1920x1080 position 1920,0
+output "Hewlett Packard HP 22er 3CM0140Y49   " resolution 1920x1080 position 0,0
 
 ### Idle configuration
 #
@@ -214,7 +216,17 @@ exec "/usr/lib/xdg-desktop-portal-wlr"
 # User Binds
 #
 bindsym $mod+p exec "/home/declan/work/bin/wpassmenu-type"
-#bindsym $mod+g exec "/user/bin/swaylock"
+
+bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
+bindsym XF86AudioLowerVolume exec amixer set Master 5%-
+bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86Search exec bemenu-run
+
 
 # Colors from https://github.com/dracula/i3/blob/05ba49e6de572c037c0b9967d2dfc03186154fda/.config/i3/config
 
