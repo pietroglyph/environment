@@ -1,0 +1,11 @@
+[Match]
+Name=wlan0
+SSID=OLIN OLIN-DEVICES
+
+[Network]
+#DNS=10.1.15.50 10.1.15.51 10.1.15.52 10.1.15.53 10.1.15.54 10.1.15.55 10.1.15.56
+# Use DHCP-provided DNS servers for olin.edu domains
+# Other domains should continue to use our hardcoded non-local DNS servers
+DHCP=yes
+DNSOverTLS=no
+Domains=~olin.edu

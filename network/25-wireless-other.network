@@ -1,0 +1,9 @@
+[Match]
+Name=wlan0
+
+[Network]
+# Route detectportal.firefox.com through whatever DNS servers are supplied by DHCP
+# Everything else should remain routed through our hardcoded non-local DNS servers
+DHCP=yes
+DNSOverTLS=no
+Domain=~detectportal.firefox.com
