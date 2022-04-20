@@ -1,5 +1,7 @@
 [Match]
-Name=wlan0
+Name=*
+Name=!bond0
+Name=!lo
 
 [Network]
 # Route detectportal.firefox.com through whatever DNS servers are supplied by DHCP

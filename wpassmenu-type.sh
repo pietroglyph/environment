@@ -20,6 +20,6 @@ password=$(printf '%s\n' "${password_files[@]}" | bemenu "$@")
 if [[ $typeit -eq 0 ]]; then
 	pass show -c "$password" 2>/dev/null
 else
-	wtype $(pass show "$password" | head -n 1) 
+	wtype "$(pass show "$password" | head -n 1)"
 	notify-send "Password typing done" -t 650
 fi
