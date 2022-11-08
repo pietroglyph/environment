@@ -1,4 +1,4 @@
-#xwayland disable
+xwayland disable
 
 ### Variables
 #
@@ -26,17 +26,22 @@ output * bg /home/declan/Pictures/Wallpaper.bell.jpg fill
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-output eDP-1 resolution 1920x1080 position 1920,1080
-output "Hewlett Packard HP 22er 3CM743171D   " resolution 1920x1080 position 1920,0
-output "Hewlett Packard HP 22er 3CM0140Y49   " resolution 1920x1080 position 0,0 transform 90
+output eDP-1 resolution 1920x1080 position 0,0 max_render_time 6
+output "Hewlett Packard HP 22er 3CM743171D   " resolution 1920x1080 position 1920,-1080 transform 270 max_render_time 6
+output "Hewlett Packard HP 22er 3CM0140Y49   " resolution 1920x1080 position 0,-1080 max_render_time 6
+output "Goldstar Company Ltd LG ULTRAWIDE 0x0000B605" resolution 3840x1600 position 0,-1600 scale 1 max_render_time 8
+for_window [app_id="^alacritty$"] max_render_time 1
+for_window [app_id="^firefox$"] border pixel 2 max_render_time 8
+for_window [app_id="^gtkwave$"] border pixel 2
 
 ### Idle configuration
 #
 # Example configuration:
 #
 exec swayidle \
-    timeout 300 "/home/declan/work/bin/lock" \
-    timeout 600 'swaymsg "output * dpms off"' \
+    timeout 600 "/home/declan/work/bin/lock" \
+    timeout 1200 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
     before-sleep "/home/declan/work/bin/lock"
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
@@ -110,6 +115,8 @@ input "type:keyboard" {
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
+
+    bindsym $mod+Shift+x border toggle
 #
 # Workspaces:
 #
@@ -220,15 +227,16 @@ bindsym $mod+apostrophe exec "/home/declan/work/bin/refsearch cpp"
 bindsym $mod+Alt+apostrophe exec "/home/declan/work/bin/refsearch cpp all"
 bindsym $mod+Shift+apostrophe exec "/home/declan/work/bin/refsearch c"
 bindsym $mod+Alt+Shift+apostrophe exec "/home/declan/work/bin/refsearch c all"
+bindsym $mod+m exec "/usr/bin/wtype '\(\)' -P left -p left -P left -p left"
 
-bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
-bindsym XF86AudioLowerVolume exec amixer set Master 5%-
-bindsym XF86AudioMute exec amixer set Master toggle
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym --locked XF86AudioRaiseVolume exec amixer set Master 5%+
+bindsym --locked XF86AudioLowerVolume exec amixer set Master 5%-
+bindsym --locked XF86AudioMute exec amixer set Master toggle
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioNext exec playerctl next
+bindsym --locked XF86AudioPrev exec playerctl previous
 bindsym XF86Search exec bemenu-run
 
 
