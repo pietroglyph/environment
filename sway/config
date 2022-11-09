@@ -237,6 +237,7 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 bindsym --locked XF86AudioPlay exec playerctl play-pause
 bindsym --locked XF86AudioNext exec playerctl next
 bindsym --locked XF86AudioPrev exec playerctl previous
+bindsym XF86RFKill exec notify-send 'Toggling RF'
 bindsym XF86Search exec bemenu-run
 
 
