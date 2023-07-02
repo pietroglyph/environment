@@ -4,6 +4,10 @@ function killDiscord() {
 	while :; do killall Discord; sleep 45; done
 }
 
+function killWifi() {
+	while :; do iwctl device wlan0 set-property Powered off; sleep 45; done
+}
+
 function timeboxedAuditoryWarning() {
 	while :
 	do
@@ -19,5 +23,5 @@ function timeboxedAuditoryWarning() {
 	done
 }
 
-killDiscord &
+killWifi &
 timeboxedAuditoryWarning &
