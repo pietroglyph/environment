@@ -1,0 +1,28 @@
+# Maintainer: Declan Freeman-Gleason <declanfreemangleason@gmail.com>
+pkgname=sudoas
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="Makes a symbolic link from doas to sudo"
+arch=('any')
+url="https://github.com/pietroglyph/environment"
+license=('GPL')
+depends=('opendoas')
+checkdepends=('which')
+makedepends=('coreutils' 'which')
+provides=('sudo')
+conflicts=('sudo')
+
+check() {
+	if ! which doas; then
+		>&2 echo "doas command cannot be located, since it is probably not on the path"
+		exit 1
+	fi
+	if ! pacman -Qo $(which doas); then
+		>&2 echo "doas command is on the path but is not owned by any package"
+	fi
+}
+
+package() {
+	mkdir -p "$pkgdir/usr/bin/"
+	ln -s $(which doas) "$pkgdir/usr/bin/sudo"
+}
