@@ -10,7 +10,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term alacritty
+set $term alacritty --working-directory ~
 # Your preferred application launcher
 set $menu bemenu-run
 
@@ -18,14 +18,7 @@ set $menu bemenu-run
 font pango:SourceCodePro Medium 9
 
 ### Output configuration
-#
-output * bg /home/declan/Pictures/Wallpaper.cave.jpg fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
+output * bg /home/declan/Pictures/Wallpaper.lagoon.jpg fill
 output eDP-1 resolution 1920x1080 position 0,0 max_render_time 6
 output "Hewlett Packard HP 22er 3CM743171D   " resolution 1920x1080 position 1920,-1080 transform 270 max_render_time 6
 output "Hewlett Packard HP 22er 3CM0140Y49   " resolution 1920x1080 position 0,-1080 max_render_time 6
@@ -43,12 +36,19 @@ exec swayidle \
     before-sleep "/home/declan/work/bin/lock"
 
 ### Input configuration
-input "2:7:SynPS/2_Synaptics_TouchPad" {
-       dwt disabled
-       tap enabled
+#input "2:7:SynPS/2_Synaptics_TouchPad" {
+#       dwt disabled
+#       tap enabled
 #       accel_profile adaptive
 #       natural_scroll enabled
-       middle_emulation enabled
+#       middle_emulation enabled
+#}
+input "1160:4639:DELL09C0:00_0488:121F_Touchpad" {
+	dwt disabled
+	tap enabled
+#	accel_profile adaptive
+	natural_scroll enabled
+	middle_emulation enabled
 }
 input "type:keyboard" {
        xkb_layout us
@@ -63,13 +63,13 @@ input "type:keyboard" {
 #
 # Basics:
 #
-    # start a terminal
+    # Start a terminal
     bindsym $mod+Return exec $term
 
-    # kill focused window
+    # Kill focused window
     bindsym $mod+Shift+q kill
 
-    # start your launcher
+    # Start your launcher
     bindsym $mod+d exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
@@ -79,11 +79,11 @@ input "type:keyboard" {
     # mouse button for dragging.
     floating_modifier $mod normal
 
-    # reload the configuration file
+    # Reload the configuration file
     bindsym $mod+Shift+c reload
 
-    # exit sway (logs you out of your wayland session)
-    bindsym $mod+Shift+e exit
+    # Exit sway (logs you out of your Wayland session)
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -92,18 +92,18 @@ input "type:keyboard" {
     bindsym $mod+$down focus down
     bindsym $mod+$up focus up
     bindsym $mod+$right focus right
-    # or use $mod+[up|down|left|right]
+    # Or use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down
     bindsym $mod+Up focus up
     bindsym $mod+Right focus right
 
-    # _move_ the focused window with the same, but add Shift
+    # Move the focused window with the same, but add Shift
     bindsym $mod+Shift+$left move left
     bindsym $mod+Shift+$down move down
     bindsym $mod+Shift+$up move up
     bindsym $mod+Shift+$right move right
-    # ditto, with arrow keys
+    # Ditto, with arrow keys
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
@@ -160,7 +160,7 @@ input "type:keyboard" {
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
 
-    # move focus to the parent container
+    # Move focus to the parent container
     bindsym $mod+a focus parent
 #
 # Scratchpad:
@@ -187,13 +187,13 @@ mode "resize" {
     bindsym $up resize shrink height 10px
     bindsym $right resize grow width 10px
 
-    # ditto, with arrow keys
+    # Ditto, with arrow keys
     bindsym Left resize shrink width 10px
     bindsym Down resize grow height 10px
     bindsym Up resize shrink height 10px
     bindsym Right resize grow width 10px
 
-    # return to default mode
+    # Return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
@@ -203,24 +203,24 @@ bindsym $mod+r mode "resize"
 # User Scripts
 #
 exec --no-user-id "/usr/bin/lxpolkit"
+exec "/usr/bin/systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+exec "/usr/bin/dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway"
 exec "/usr/lib/geoclue-2.0/demos/agent"
 exec "/usr/bin/gammastep -t 6500:2000"
-exec "/usr/bin/mako"
-exec "/usr/bin/dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway"
 exec "/usr/lib/xdg-desktop-portal -r"
+exec "/usr/bin/mako"
 
 #
 # User Binds
 #
-bindsym $mod+p exec "/home/declan/work/bin/wpassmenu-type"
+bindsym $mod+p exec "/home/declan/.local/lib/wpassmenu-type"
 bindsym $mod+n exec "/usr/bin/firefox ~/Documents/directory.pdf"
 bindsym $mod+t exec "/usr/bin/systemctl suspend"
-bindsym $mod+g exec "/home/declan/work/bin/lock"
-bindsym $mod+apostrophe exec "/home/declan/work/bin/refsearch cpp"
-bindsym $mod+Alt+apostrophe exec "/home/declan/work/bin/refsearch cpp all"
-bindsym $mod+Shift+apostrophe exec "/home/declan/work/bin/refsearch c"
-bindsym $mod+Alt+Shift+apostrophe exec "/home/declan/work/bin/refsearch c all"
-bindsym $mod+m exec "/usr/bin/wtype '\(\)' -P left -p left -P left -p left"
+bindsym $mod+g exec "/home/declan/.local/lib/lock"
+bindsym $mod+apostrophe exec "/home/declan/.local/lib/refsearch cpp"
+bindsym $mod+Alt+apostrophe exec "/home/declan/.local/lib/refsearch cpp all"
+bindsym $mod+Shift+apostrophe exec "/home/declan/.local/lib/refsearch c"
+bindsym $mod+Alt+Shift+apostrophe exec "/home/declan/.local/lib/refsearch c all"
 
 bindsym --locked XF86AudioRaiseVolume exec amixer set Master 5%+
 bindsym --locked XF86AudioLowerVolume exec amixer set Master 5%-
@@ -267,4 +267,4 @@ client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
 client.background       #F8F8F2
 
-include @sysconfdir@/sway/config.d/*
+include ~/.config/sway/config.d/*
