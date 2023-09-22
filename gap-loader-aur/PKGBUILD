@@ -1,0 +1,24 @@
+pkgbase='python-gap-loader'
+pkgname=('python-gap-loader')
+_module='gap-loader'
+pkgver='0.3'
+pkgrel=1
+pkgdesc="Import hook for GAP files in SAGE math."
+url="http://github.com/jorants/gap-loader"
+depends=('python')
+makedepends=('python-setuptools')
+license=('MIT')
+arch=('any')
+source=("https://files.pythonhosted.org/packages/source/${_module::1}/$_module/${_module/-/_}-$pkgver.tar.gz")
+sha256sums=('a3d1fe453d20db036460dfefcf5ee4b62f6ac300f1a966acbac04698b296825a')
+
+build() {
+    cd "${srcdir}/${_module/-/_}-${pkgver}"
+    python setup.py build
+}
+
+package() {
+    depends+=()
+    cd "${srcdir}/${_module/-/_}-${pkgver}"
+    python setup.py install --root="${pkgdir}" --optimize=1 --skip-build
+}
